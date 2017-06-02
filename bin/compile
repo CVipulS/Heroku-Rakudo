@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+mkdir -p ~/vendor/rakudo
+cd $2
+if [ ! -f Rakudo201705.tgz ]; then
+  wget https://vschawathe.gitlab.io/Heroku-Rakudo/Rakudo201705.tgz
+fi
+tar -C ~/vendor/rakudo -xvf Rakudo201705.tgz
+git clone https://github.com/ugexe/zef.git
+cd zef
+perl6 -Ilib bin/zef install .

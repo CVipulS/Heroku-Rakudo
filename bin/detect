@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:/app/vendor/rakudo/lib\";" > $1/.profile.d/mybuildpack-defaults.sh
-echo "export PATH=\"\$PATH:\$HOME/vendor/rakudo/bin\";" >> $1/.profile.d/mybuildpack-defaults.sh
-echo "export PATH=\"\$PATH:\$HOME/vendor/rakudo/languages/perl6/site/bin\";" >> $1/.profile.d/mybuildpack-defaults.sh
-echo "export PATH=\"\$PATH:\$HOME/vendor/rakudo/share/perl6/site/bin\";" >> $1/.profile.d/mybuildpack-defaults.sh
+cd $1
+mkdir .profile.d
+echo "export LD_LIBRARY_PATH=\"\$LD_LIBRARY_PATH:/app/vendor/rakudo/lib\";" > .profile.d/mybuildpack-defaults.sh
+echo "export PATH=\"\$PATH:\$HOME/vendor/rakudo/bin\";" >> .profile.d/mybuildpack-defaults.sh
+echo "export PATH=\"\$PATH:\$HOME/vendor/rakudo/languages/perl6/site/bin\";" >> .profile.d/mybuildpack-defaults.sh
+echo "export PATH=\"\$PATH:\$HOME/vendor/rakudo/share/perl6/site/bin\";" >> .profile.d/mybuildpack-defaults.sh
 echo "Rakudo PERL6"
 exit 0

@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-mkdir -p {$1}/vendor/rakudo
-if [ ! -d {$2} ]; then
-  mkdir -p {$2}
-fi
-cd $2
-if [ ! -f Rakudo201705.tgz ]; then
+if [ ! -f "$2/Rakudo201705.tgz" ]; then
+  if [ ! -d "$2" ]; then
+    mkdir -p $2
+  fi
+  cd $2
   wget https://vschawathe.gitlab.io/Heroku-Rakudo/Rakudo201705.tgz
 fi
-tar -C /app/vendor/rakudo -xvf Rakudo201705.tgz &
+cd $1
+mkdir -p vendor/rakudo
+tar -C vendor/rakudo -xf $2/Rakudo201705.tgz
